@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Vehicle Data IO</title>
+</h:head>
+
+<h:body>
+	<h2>Данни за превозни средства</h2>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Производител" for="make" />
+			<h:inputText id="make" required="true" value="#{VehicleData.make}" />
+
+			<h:outputLabel value="Модел" for="model" />
+			<h:inputText id="model" required="true" value="#{VehicleData.model}" />
+
+			<h:outputLabel value="Максимален брой пасажери" for="maxPassangers" />
+			<h:inputText id="maxPassangers" required="true"
+				value="#{VehicleData.maxPassangers}"
+				converterMessage="Моля въвеждайте само числа" />
+
+			<h:outputLabel value="Година на пройзводство" for="manufactureYear" />
+			<h:inputText id="manufactureYear" required="true"
+				value="#{VehicleData.manufactureYear}"
+				converterMessage="Моля въвеждайте само числа" />
+
+			<h:outputLabel value="Разход на гориво" for="gasUsage" />
+			<h:inputText id="gasUsage" required="true"
+				value="#{VehicleData.gasUsage}"
+				converterMessage="Моля въвеждайте само числа" />
+
+			<h:outputLabel value="Цвят" for="color" />
+			<h:inputText id="color" required="true" value="#{VehicleData.color}" />
+
+			<h:outputLabel value="Тип на скоростна кутия" for="gearboxType"
+				required="true" />
+			<h:selectOneMenu value="#{VehicleData.gearboxType}" id="gearboxType">
+				<f:selectItem itemValue="manual" itemLabel="ръчна" />
+				<f:selectItem itemValue="automatic" itemLabel="автоматична" />
+			</h:selectOneMenu>
+
+			<h:commandButton value="Изпрати" action="#{VehicleData.send()}" />
+
+		</h:panelGrid>
+	</h:form>
+
+	<h:dataTable value="#{Database.getVehicleData()}" var="v">
+		<h:column>
+			<f:facet name="header">
+				ID
+			</f:facet>
+			<h:outputText value="#{v.ID}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				Производител
+			</f:facet>
+			<h:outputText value="#{v.make}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				Модел
+			</f:facet>
+			<h:outputText value="#{v.model}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				Максимален брой пасажери
+			</f:facet>
+			<h:outputText value="#{v.maxPassangers}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				Година на пройзводство
+			</f:facet>
+			<h:outputText value="#{v.manufactureYear}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				Разход на гориво
+			</f:facet>
+			<h:outputText value="#{v.gasUsage}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				Цвят
+			</f:facet>
+			<h:outputText value="#{v.color}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">
+				Тип на скоростна кутия
+			</f:facet>
+			<h:outputText value="#{v.gearboxType}" />
+		</h:column>
+	</h:dataTable>
+</h:body>
+
+</html>
