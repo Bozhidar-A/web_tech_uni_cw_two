@@ -1,13 +1,27 @@
 package menaged_beans;
 
 import dao.Database;
+import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 @Named("VehicleData")
 @RequestScoped
+@Entity
 public class VehicleData {
+	@EJB
+	@Transient
+	Database db;
+
+	
+	@Id
+	@GeneratedValue
 	private int ID;
+	
 	private String make;
 	private String model;
 	private Integer maxPassangers;
@@ -15,6 +29,7 @@ public class VehicleData {
 	private Integer gasUsage;
 	private String color;
 	private String gearboxType;
+
 
 	public VehicleData() {
 
@@ -95,7 +110,8 @@ public class VehicleData {
 	}
 
 	public String send() {
-		Database.addVehicleData(this);
+		//Database.addVehicleData(this);
+		db.addVehicleData(this);
 		return "VehicleDataIO";
 	}
 

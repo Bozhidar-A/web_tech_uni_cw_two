@@ -41,8 +41,8 @@
 			<h:outputLabel value="Тип на скоростна кутия" for="gearboxType"
 				required="true" />
 			<h:selectOneMenu value="#{VehicleData.gearboxType}" id="gearboxType">
-				<f:selectItem itemValue="manual" itemLabel="ръчна" />
-				<f:selectItem itemValue="automatic" itemLabel="автоматична" />
+				<f:selectItem itemValue="ръчна" itemLabel="ръчна" />
+				<f:selectItem itemValue="автоматична" itemLabel="автоматична" />
 			</h:selectOneMenu>
 
 			<h:commandButton value="Изпрати" action="#{VehicleData.send()}" />

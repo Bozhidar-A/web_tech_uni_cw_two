@@ -21,6 +21,36 @@
 			<version>9.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- MySql JDBC драйвър -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
+		</dependency>
+
+		<!-- JPA предоставена от hibernate -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.0.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>6.0.0.Final</version>
+		</dependency>
+
+		<!--  EJB 3.2. -->
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>javax.ejb-api</artifactId>
+			<version>3.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<finalName>web_tech_uni_cw_two</finalName>
