@@ -22,12 +22,19 @@ public class Database {
 //		return vehicles;
 //	}
 
-	public void addVehicleData(VehicleData newData) {
+	public VehicleData addVehicleData(VehicleData newData) {
 		em.persist(newData);
+		return newData;
 	}
 	
 	public List<VehicleData> getVehicleData(){
 		return em.createQuery("SELECT a FROM VehicleData a", VehicleData.class).getResultList();
+	}
+	
+	public List<VehicleData> getVehicleDataByID(int id) {
+		return em.createQuery("SELECT a FROM VehicleData a WHERE a.id = :id", VehicleData.class)
+	            .setParameter("id", id)
+	            .getResultList();
 	}
 
 }
